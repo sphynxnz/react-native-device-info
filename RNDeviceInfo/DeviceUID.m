@@ -45,7 +45,10 @@
 - (NSString *)uid {
     if (!_uid) _uid = [[self class] valueForKeychainKey:_uidKey service:_uidKey];
     if (!_uid) _uid = [[self class] valueForUserDefaultsKey:_uidKey];
-    if (!_uid) _uid = [[self class] appleIFV];
+    /*
+    * Remove reliance on IFV
+    if (!_uid) _uid = [[self class] appleIFV]; 
+    */
     if (!_uid) _uid = [[self class] randomUUID];
     [self save];
     return _uid;
@@ -118,6 +121,9 @@
 
 #pragma mark - UID Generation methods
 
+/*
+* Remove reliance on IFV
+*
 + (NSString *)appleIFV {
     if(NSClassFromString(@"UIDevice") && [UIDevice instancesRespondToSelector:@selector(identifierForVendor)]) {
         // only available in iOS >= 6.0
@@ -125,6 +131,7 @@
     }
     return nil;
 }
+*/
 
 + (NSString *)randomUUID {
     if(NSClassFromString(@"NSUUID")) {
