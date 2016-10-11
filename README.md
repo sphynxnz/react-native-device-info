@@ -4,10 +4,10 @@
 
 Device Information for [React Native](https://github.com/facebook/react-native)
 
-## Install
+## Install (This forked version)
 
 ```shell
-npm install --save react-native-device-info
+npm install --save https://github.com/sphynxnz/react-native-device-info
 ```
 
 ## Automatically link
